@@ -10,6 +10,13 @@ visitors — not just the final conversion number.
 
 See `WRITEUP.md` for the design rationale, scope decisions, and AI usage.
 
+## Demo
+
+![Funnel dashboard demo](docs/demo.gif)
+
+Selecting a campaign updates the funnel, KPI tiles, and insights. The funnel
+narrows step by step and the biggest drop-off is highlighted in red.
+
 ## Quick start (Docker)
 
 From this folder:
