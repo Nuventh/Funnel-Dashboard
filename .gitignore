@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.timestamp-*.mjs
+
+# os / editor cruft
+.DS_Store
+*.log
+
+# private interview notes — not part of the submission
+TALKING_POINTS.md

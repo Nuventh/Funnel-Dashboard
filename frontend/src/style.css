@@ -1,0 +1,346 @@
+/* Global styles. One stylesheet keeps the project simple to read.
+   The accent is teal; red/amber are reserved for the worst-step warning. */
+
+:root {
+  --bg: #f4f4f2;
+  --card: #ffffff;
+  --ink: #1c1c1a;
+  --muted: #6b6b66;
+  --line: rgba(0, 0, 0, 0.08);
+
+  --accent: #1d9e75; /* teal 400 */
+  --accent-strong: #0f6e56; /* teal 600 */
+  --accent-100: #9fe1cb; /* teal 100 */
+  --accent-50: #e1f5ee; /* teal 50 */
+
+  --danger: #e24b4a;
+  --danger-strong: #a32d2d;
+  --warn: #ba7517;
+  --warn-50: #faeeda;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.title .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.btn {
+  border: none;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 820px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 0.5px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 22px;
+}
+
+.card-title {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger-strong);
+  background: #fcebeb;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+/* Campaign list */
+.list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list li {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 0.5px solid var(--line);
+  cursor: pointer;
+}
+
+.list li:hover {
+  background: var(--bg);
+}
+
+.list li.active {
+  border-color: var(--accent);
+  background: var(--accent-50);
+}
+
+.list .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.list .name {
+  font-weight: 500;
+}
+
+.list .device {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.list .sub {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.list .conv {
+  color: var(--muted);
+}
+
+.list .worst {
+  color: var(--danger-strong);
+}
+
+/* Metric tiles */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.tile {
+  padding: 16px 18px;
+}
+
+.tile-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.tile-value {
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 8px;
+  letter-spacing: -0.5px;
+}
+
+.tile-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Funnel chart card */
+.chart-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.device-tag {
+  font-size: 12px;
+  color: var(--accent-strong);
+  background: var(--accent-50);
+  padding: 3px 10px;
+  border-radius: 8px;
+  text-transform: capitalize;
+}
+
+.big {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 6px 0 18px;
+  letter-spacing: -0.5px;
+}
+
+.big-sub {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+
+.funnel {
+  width: 100%;
+  height: auto;
+}
+
+.funnel .chart-bg {
+  fill: #f1f1ef;
+}
+
+.funnel .layer-50 {
+  fill: var(--accent-50);
+}
+
+.funnel .layer-100 {
+  fill: var(--accent-100);
+}
+
+.funnel .layer-main {
+  fill: var(--accent);
+}
+
+/* Thin connector line linking the top chip, the % pill and the name chip. */
+.funnel .connector {
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+/* Black cumulative-conversion pill, centered in each segment. */
+.funnel .pill {
+  fill: var(--ink);
+}
+
+.funnel .pill-text {
+  fill: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+/* White rounded "chip" labels (visitor count on top, step name on bottom). */
+.funnel .chip {
+  fill: #fff;
+  stroke: rgba(0, 0, 0, 0.12);
+  stroke-width: 1;
+}
+
+.funnel .chip-text {
+  fill: var(--ink);
+  font-size: 14px;
+  text-anchor: middle;
+}
+
+.funnel .chip.worst {
+  fill: #fcebeb;
+  stroke: var(--danger);
+}
+
+.funnel .chip-text.worst {
+  fill: var(--danger-strong);
+  font-weight: 500;
+}
+
+/* Insights */
+.insights {
+  display: block;
+}
+
+.insight {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border-left: 3px solid var(--line);
+  background: var(--bg);
+  margin-bottom: 10px;
+}
+
+.insight:last-child {
+  margin-bottom: 0;
+}
+
+.insight.critical {
+  border-left-color: var(--danger);
+  background: #fcebeb;
+}
+
+.insight.warning {
+  border-left-color: var(--warn);
+  background: var(--warn-50);
+}
+
+.insight.info {
+  border-left-color: var(--accent);
+  background: var(--accent-50);
+}
+
+.ins-title {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.ins-msg {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "funnel-dashboard-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Vue frontend that visualizes popup funnel analytics. All numbers come from the backend; this app only renders them.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "vue": "3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "5.2.1",
+    "@vue/test-utils": "2.4.6",
+    "jsdom": "25.0.1",
+    "vite": "6.0.7",
+    "vitest": "2.1.8"
+  }
+}
